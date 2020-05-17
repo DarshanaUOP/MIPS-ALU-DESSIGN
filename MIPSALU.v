@@ -23,11 +23,11 @@ module MIPSALU(ALUCtl,A,B,ALUOut,Zero);
 endmodule
 
 module ALUControl (ALUOp,FuncCode,ALUCtl);
-	input [1:0] ALUOp;
-	input [5:0] FuncCode;
-	output reg [3:0] ALUCtl;
+	input		[1:0]	ALUOp;
+	input		[5:0]	FuncCode;
+	output	reg	[3:0]	ALUCtl;
 	
-	always @ case(FuncCode)
+	always case(FuncCode)
 		32: ALUOp <= 2;		// ADD
 		34: ALUOp <= 6;		// SUBSTRACT
 		36: ALUOp <= 0;		// AND
@@ -38,8 +38,7 @@ module ALUControl (ALUOp,FuncCode,ALUCtl);
 	endcase
 endmodule
 
-
-`timescale 1 ns / 1 ps
+`timescale 1 ns / 1 ps 
 module tb_MIPSALU();
 
 	reg [1:0]	ALUOp;
