@@ -3,10 +3,10 @@
 		   CHAPTER	: "Constructing a Basic Arithmetic Logic Unit"
 */
 module MIPSALU(ALUCtl,A,B,ALUOut,Zero);
-	input [3:0] ALUCtl;
-	input [31:0] A,B;
-	output reg [31:0] ALUOut;
-	output Zero;
+	input 		[3:0] ALUCtl;
+	input 		[31:0] A,B;
+	output 	reg 	[31:0] ALUOut;
+	output		Zero;
 
 	assign Zero = (ALUOut==0);	// Zero is true if ALUOut is 0
 	always @(ALUCtl,A,B) begin	// reevaluate if these change
@@ -46,18 +46,25 @@ module tb_MIPSALU();
 	reg [1:0]	ALUOp;
 	reg [5:0]	FuncCode;
 	
-	reg 		Zero;
+	wire 		Zero;
 	reg [31:0] 	A,B;
 	
-	wire [31:0]	ALUOut;
-	wire [3:0]	ALUCtl;
+	reg [31:0]	ALUOut;
+	reg [3:0]	ALUCtl;
 	
 	MIPSALU		ALU		(ALUCtl,A,B,ALUOut,Zero);
 	ALUControl	ALUCONTROL	(ALUOp,FuncCode,ALUCtl);
 initial begin
-	ALUOp	=	2'h0;
-	ALUCtl	=	4'h0;
+	ALUOp	=	2'h0;	
+	FuncCode=	6'h0;
 	
+	Zero	=	0;
+	A	=	32'h0;
+	B	=	32'h0;
+	
+	ALUOut	=	32'h0;
+	ALUCtl	=	4'h0;
+
 end
 endmodule
 
