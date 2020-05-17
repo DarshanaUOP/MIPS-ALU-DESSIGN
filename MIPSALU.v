@@ -9,7 +9,7 @@ module MIPSALU(ALUCtl,A,B,ALUOut,Zero);
 	output Zero;
 
 	assign Zero = (ALUOut==0);	// Zero is true if ALUOut is 0
-	always @(ALUctl,A,B) begin	// reevaluate if these change
+	always @(ALUCtl,A,B) begin	// reevaluate if these change
 		case (ALUCtl)
 			0: ALUOut <= A & B;
 			1: ALUOut <= A | B;
@@ -27,7 +27,7 @@ module ALUControl (ALUOp,FuncCode,ALUCtl);
 	input [5:0] FuncCode;
 	output reg [3:0] ALUCtl;
 	
-	always case(FuncCode)
+	always @ case(FuncCode)
 		32: ALUOp <= 2;		// ADD
 		34: ALUOp <= 6;		// SUBSTRACT
 		36: ALUOp <= 0;		// AND
@@ -38,14 +38,21 @@ module ALUControl (ALUOp,FuncCode,ALUCtl);
 	endcase
 endmodule
 
-/*
+
 `timescale 1 ns / 1 ps
 module tb_MIPSALU();
 
-	reg [1:0] ALUOp;
+	reg [1:0]	ALUOp;
+	reg [5:0]	FuncCode;
+	wire [3:0]	ALUCtl;
+	
+	reg [3:0] ALUCtl;
+	reg [31:0] A,B;
+	wire [31:0] ALUOut;
+	wire Zero;
 
 	MIPSALU		ALU		(ALUCtl,A,B,ALUOut,Zero);
 	ALUControl	ALUCONTROL	(ALUOp,FuncCode,ALUCtl);
 
 endmodule
-*/
+
