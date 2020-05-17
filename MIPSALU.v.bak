@@ -61,7 +61,7 @@ initial begin
 	//Zero	=	0;
 	A	=	32'h0;
 	B	=	32'h0;
-	
+	FuncCode=	6'h0;
 	//ALUOut	=	32'h0;
 	//ALUCtl	=	4'h0;
 

@@ -64,7 +64,10 @@ initial begin
 	FuncCode=	6'h0;
 	//ALUOut	=	32'h0;
 	//ALUCtl	=	4'h0;
-
+	#20	A	=	32'h1;
+	#5	B	=	32'h1;
+	#5	FuncCode=	64'd36;
+	
 end
 endmodule
 
