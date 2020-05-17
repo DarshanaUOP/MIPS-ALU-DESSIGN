@@ -6,7 +6,7 @@ module MIPSALU(ALUCtl,A,B,ALUOut,Zero);
 	input 		[3:0] ALUCtl;
 	input 		[31:0] A,B;
 	output 	reg 	[31:0] ALUOut;
-	output		Zero;
+	output	wire	Zero;
 
 	assign Zero = (ALUOut==0);	// Zero is true if ALUOut is 0
 	always @(ALUCtl,A,B) begin	// reevaluate if these change
@@ -46,7 +46,7 @@ module tb_MIPSALU();
 	reg [1:0]	ALUOp;
 	reg [5:0]	FuncCode;
 	
-	wire 		Zero;
+	reg 		Zero;
 	reg [31:0] 	A,B;
 	
 	reg [31:0]	ALUOut;
