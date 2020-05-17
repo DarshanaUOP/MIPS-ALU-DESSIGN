@@ -2,9 +2,9 @@
 	REFFERENCE : "E:\Semester 8\EE587  Digital Systems Design and Synthesis\Books\Computer_Organization_and_Design_5th_Edi.pdf"
 		   CHAPTER	: "Constructing a Basic Arithmetic Logic Unit"
 */
-module MIPSALU(ALUCtl,A,B,ALUOut,Zero)
-	input [3:0] ALUctl;
-	input [31:0] A;
+module MIPSALU(ALUCtl,A,B,ALUOut,Zero);
+	input [3:0] ALUCtl;
+	input [31:0] A,B;
 	output reg [31:0] ALUOut;
 	output Zero;
 
@@ -22,8 +22,8 @@ module MIPSALU(ALUCtl,A,B,ALUOut,Zero)
 	end
 endmodule
 
-module ALUControl (ALUOp,FuncCode,ALUCtl)
-	input [1:0] ALUOp;
+module ALUControl (ALUOp,FuncCode,ALUCtl);
+	input [1:0] ALUOp,
 	input [5:0] FuncCode;
 	output reg [3:0] ALUCtl;
 	
@@ -39,10 +39,11 @@ module ALUControl (ALUOp,FuncCode,ALUCtl)
 endmodule
 
 `timescale 1 ns / 1 ps
-module tb_MIPSALU()
+module tb_MIPSALU();
+/*
 	reg [1:0] ALUOp;
 
-	MIPSALU		ALU		(ALUCtl,A,B,ALUOut,Zero)
-	ALUControl	ALUCONTROL	(ALUOp,FuncCode,ALUCtl)
-
+	MIPSALU		ALU		(ALUCtl,A,B,ALUOut,Zero);
+	ALUControl	ALUCONTROL	(ALUOp,FuncCode,ALUCtl);
+*/
 endmodule
