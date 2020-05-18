@@ -63,14 +63,30 @@ initial begin
 /* TEST CASSES FOR AND OPERATION */
 	#20	ALUCtl	=	4'h0;		// 0 - AND
 	// SET A AND B BOTH ZERO
+	#20	A	=	32'h0;
+	#20	B	=	32'h0;
+
 	// SET A AND B BOTH ONE
-	// REMAIN A ONE AND CHANGE B TO TWO
-	// CHANGE A INTO 3 AND B INTO 6 
-	// CHANGE A INTO 7 AND B INTO 4
-	// CHANGE A INTO 4'ha (TEN) AND B INTO 4'hc (12)
 	#20	A	=	32'h1;
 	#20	B	=	32'h1;
 
+	// REMAIN A ONE AND CHANGE B TO TWO
+	#20	A	=	32'h1;
+	#20	B	=	32'h2;
+
+	// CHANGE A INTO 3 AND B INTO 6 
+	#20	A	=	32'h3;
+	#20	B	=	32'h6;
+
+	// CHANGE A INTO 7 AND B INTO 4
+	#20	A	=	32'h7;
+	#20	B	=	32'h4;
+
+	// CHANGE A INTO 4'ha (TEN) AND B INTO 4'hc (12)
+	#20	A	=	32'ha;
+	#20	B	=	32'hc;
+
+/* TEST CASSES FOR OR OPERATION */	
 	#20	ALUCtl	=	4'h1;		// 1 - OR 
 
 	#20	ALUCtl	=	4'b0010;	// 2 - ADD
