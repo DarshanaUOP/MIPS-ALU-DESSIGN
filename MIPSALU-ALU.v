@@ -52,7 +52,7 @@ module tb_MIPSALU();
 	reg [31:0] 	A,B;
 	
 	wire [31:0]	ALUOut;
-	wire [3:0]	ALUCtl;
+	reg [3:0]	ALUCtl;
 	
 	MIPSALU		ALU		(ALUCtl,A,B,ALUOut,Zero);
 	//ALUControl	ALUCONTROL	(FuncCode,ALUCtl);
@@ -68,8 +68,19 @@ initial begin
 	//ALUCtl	=	4'h0;
 	#20	A	=	32'h1;
 	#5	B	=	32'h1;
-	#5	AALUCtl	=	64'd36;
+	#5	ALUCtl	=	4'b0000;	// 0 - AND
+
+	#25	ALUCtl	=	4'b0001;	// 1 - OR 
+
+	#25	ALUCtl	=	4'b0010;	// 2 - ADD
 	
+	#25	ALUCtl	=	4'b0110;	// 6 - Substrct
+
+	#25	ALUCtl	=	4'b0111;	// 7 - Set on Less Than (SLT)
+
+	#25	ALUCtl	=	4'b1100;	// 12 - NOR
+
+
 end
 endmodule
 
