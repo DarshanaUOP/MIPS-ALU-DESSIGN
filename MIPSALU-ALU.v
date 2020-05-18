@@ -22,6 +22,7 @@ module MIPSALU(ALUCtl,A,B,ALUOut,Zero);
 	end
 endmodule
 
+/*
 module ALUControl (FuncCode,ALUCtl);
 	reg		[1:0]	ALUOp;
 	input		[5:0]	FuncCode;
@@ -39,12 +40,13 @@ module ALUControl (FuncCode,ALUCtl);
 
 	always @(ALUOp)	ALUCtl <= ALUOp;
 endmodule
+*/
 
 `timescale 1 ns / 1 ps 
 module tb_MIPSALU();
 
-	reg [1:0]	ALUOp;
-	reg [5:0]	FuncCode;
+	//reg [1:0]	ALUOp;
+	//reg [5:0]	FuncCode;
 	
 	wire 		Zero;
 	reg [31:0] 	A,B;
@@ -53,20 +55,20 @@ module tb_MIPSALU();
 	wire [3:0]	ALUCtl;
 	
 	MIPSALU		ALU		(ALUCtl,A,B,ALUOut,Zero);
-	ALUControl	ALUCONTROL	(FuncCode,ALUCtl);
+	//ALUControl	ALUCONTROL	(FuncCode,ALUCtl);
 initial begin
-	ALUOp	=	2'h0;	
-	FuncCode=	6'h0;
+	//ALUOp	=	2'h0;	
+	//FuncCode=	6'h0;
 	
 	//Zero	=	0;
 	A	=	32'h0;
 	B	=	32'h0;
-	FuncCode=	6'h0;
+	//FuncCode=	6'h0;
 	//ALUOut	=	32'h0;
 	//ALUCtl	=	4'h0;
 	#20	A	=	32'h1;
 	#5	B	=	32'h1;
-	#5	FuncCode=	64'd36;
+	#5	AALUCtl	=	64'd36;
 	
 end
 endmodule
