@@ -60,7 +60,7 @@ initial begin
 	A	=	32'h0;
 	B	=	32'h0;
 	ALUCtl		=	4'h0;
-/* TEST CASESS FOR AND OPERATION */
+/* TEST CASSES FOR AND OPERATION */
 	#20	ALUCtl	=	4'h0;		// 0 - AND
 	// SET A AND B BOTH ZERO
 	// SET A AND B BOTH ONE
