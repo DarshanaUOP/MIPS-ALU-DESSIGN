@@ -65,7 +65,7 @@ initial begin
 	B	=	32'h0;
 	//FuncCode=	6'h0;
 	//ALUOut	=	32'h0;
-	//ALUCtl	=	4'h0;
+	ALUCtl		=	4'b0000;
 	#20	A	=	32'h1;
 	#5	B	=	32'h1;
 	#5	ALUCtl	=	4'b0000;	// 0 - AND
